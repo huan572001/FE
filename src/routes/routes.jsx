@@ -58,9 +58,15 @@ const routes = [
     key: "/",
   },
   {
-    label: "Customer",
-    path: routerLinks("Customer"),
-    component: React.lazy(() => import("@/pages/Dashboard/Dashboard")),
+    label: "Special",
+    path: routerLinks("Special"),
+    component: React.lazy(() => import("@/pages/Special")),
+    key: "/",
+  },
+  {
+    label: "createSpecial",
+    path: routerLinks("CreateSpecial"),
+    component: React.lazy(() => import("@/pages/Special/createSpecial")),
     key: "/",
   },
 ];

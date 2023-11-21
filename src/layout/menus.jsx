@@ -75,6 +75,11 @@ const Layout = [
     key: "Category",
     icon: <AuditOutlined />,
   },
+  {
+    label: "Special",
+    key: "Special",
+    icon: <AuditOutlined />,
+  },
 ];
 
 const Out = () => {

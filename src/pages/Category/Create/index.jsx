@@ -3,27 +3,31 @@ import { Button, Col, DatePicker, Form, Input, Modal, Row, Select } from "antd";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import routerLinks from "@/utils/router-links";
-import moment from "moment";
-import { keyUser } from "@/constant/auth";
 import { showError, showSuccess } from "@/components/AccountModal/Modal";
 import { SpecialAPI } from "@/services/special";
+import { CategoryAPI } from "@/services/category";
 
 const CreateProduct = () => {
   const [option, setOption] = useState([]);
-  const [listVT, setListVT] = useState([]);
+  const [IMG, setIMG] = useState();
   const [special, setSpecial] = useState([]);
   const navigate = useNavigate();
+  console.log(IMG);
   const onFinish = async (values) => {
-    console.log(values.image.target.value);
-    // try {
-    //   const rq = await PromosionAPI.createPromotion(data);
-    //   if (rq?.success) {
-    //     showSuccess("Tạo khuyến mãi thành công");
-    //     navigate(routerLinks("Promotion"));
-    //   }
-    // } catch (error) {
-    //   showError();
-    // }
+    const data = new FormData();
+    data.append("categoryName", values?.categoryName);
+    data.append("ids_special", values?.ids_special || 1);
+    data.append("image", IMG);
+    console.log(data);
+    try {
+      const rq = await CategoryAPI.creatCategory(data);
+      if (rq?.success) {
+        showSuccess("Tạo loại nguyên liệu thành công");
+        navigate(routerLinks("Category"));
+      }
+    } catch (error) {
+      showError();
+    }
   };
   const handleChange = (value) => {
     setListVT(value);
@@ -42,15 +46,6 @@ const CreateProduct = () => {
     getListProduct();
     // getAllIngredient(setOption);
   }, []);
-  const getIngrediantByID = (id) => {
-    let tmp = "";
-    option.forEach((e) => {
-      if (e?.id === id) {
-        tmp = e?.name;
-      }
-    });
-    return tmp;
-  };
   const handleChangeIMG = (e) => {
     const reader = new FileReader();
 
@@ -61,14 +56,9 @@ const CreateProduct = () => {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
-  const disabledDate = (current) => {
-    // Cho phép chọn các ngày trong quá khứ
-    return current && current <= moment().endOf("day");
-  };
   return (
     <>
-      <h1>Tạo khuyến mãi</h1>
-      <input type="file" />
+      <h1>Tạo loại sản phẩm</h1>
       <Form layout="vertical" onFinish={onFinish}>
         <Row className="myRow">
           <Col span={11}>
@@ -82,7 +72,9 @@ const CreateProduct = () => {
                   message: "Không được để trống!",
                 },
               ]}
-            ></Form.Item>
+            >
+              <input type="file" onChange={(e) => setIMG(e.target.files[0])} />
+            </Form.Item>
           </Col>
           <Col span={13}>
             <Form.Item
@@ -100,7 +92,7 @@ const CreateProduct = () => {
           </Col>
         </Row>
         <Form.Item
-          name={"đsads"}
+          name={"ids_special"}
           // rules={[
           //   {
           //     required: true,
@@ -114,6 +106,7 @@ const CreateProduct = () => {
             }}
             placeholder="Tags Mode"
             onChange={handleChange}
+            defaultValue={1}
           >
             {special?.map((e, index) => {
               return (
