@@ -8,13 +8,10 @@ import { keyUser } from "@/constant/auth";
 import { showError, showSuccess } from "@/components/AccountModal/Modal";
 import { SpecialAPI } from "@/services/special";
 
-const { TextArea } = Input;
-const { RangePicker } = DatePicker;
 const CreateProduct = () => {
   const [option, setOption] = useState([]);
   const [listVT, setListVT] = useState([]);
   const [special, setSpecial] = useState([]);
-  const user = JSON.parse(localStorage.getItem(keyUser));
   const navigate = useNavigate();
   const onFinish = async (values) => {
     console.log(values.image.target.value);
@@ -34,10 +31,12 @@ const CreateProduct = () => {
   const getListProduct = async () => {
     try {
       const req = await SpecialAPI.getAllSpecial();
-      if (req?.success) {
+      if (req?.data) {
         setSpecial(req?.data);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     getListProduct();
@@ -69,7 +68,7 @@ const CreateProduct = () => {
   return (
     <>
       <h1>Tạo khuyến mãi</h1>
-
+      <input type="file" />
       <Form layout="vertical" onFinish={onFinish}>
         <Row className="myRow">
           <Col span={11}>
@@ -83,9 +82,7 @@ const CreateProduct = () => {
                   message: "Không được để trống!",
                 },
               ]}
-            >
-              <input type="file" />
-            </Form.Item>
+            ></Form.Item>
           </Col>
           <Col span={13}>
             <Form.Item

@@ -14,7 +14,7 @@ const Category = () => {
   useEffect(() => {
     fetchRows();
   }, []);
-
+  console.log(tableData);
   return (
     <div>
       <h1

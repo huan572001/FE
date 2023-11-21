@@ -6,4 +6,8 @@ export const CategoryAPI = {
     const url = `/${CATEGORY_API_PATH}/getAllCategory`;
     return axiosClient.get(url);
   },
+  creatCategory: async () => {
+    const url = `/${CATEGORY_API_PATH}/add`;
+    return axiosClient.post(url);
+  },
 };

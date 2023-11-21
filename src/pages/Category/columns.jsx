@@ -6,36 +6,25 @@ export const columns = (onDelete) => {
   const navigate = useNavigate();
   return [
     {
-      title: "Mã khuyến mãi",
+      title: "Mã",
       key: "1",
       dataIndex: "id",
     },
     {
-      title: "Thời gian bắt đầu",
-      key: "1",
-      dataIndex: "start_day",
-      render: (_, info) => (
-        <>{moment(info.start_day).format("YYYY-MM-DD HH:mm:ss")}</>
-      ),
-    },
-    {
-      title: "Thời gian kết thúc",
-      key: "4",
-      dataIndex: "end_day",
-      render: (_, info) => (
-        <>{moment(info.end_day).format("YYYY-MM-DD HH:mm:ss")}</>
-      ),
-    },
-    {
-      title: "Sản phẩm áp dụng khuyến mãi",
+      title: "Ảnh",
       key: "6",
-      dataIndex: "product.name",
+      render: (_, info) => (
+        <>
+          <img className="w-8 " src={info?.imageUrl} alt="anh" />
+        </>
+      ),
     },
     {
-      title: "Nhân viên tạo khuyến mãi",
-      key: "5",
-      dataIndex: "staff.fullname",
+      title: "Tên loại",
+      key: "6",
+      dataIndex: "categoryName",
     },
+
     {
       title: "Hoạt động",
       key: "8",

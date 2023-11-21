@@ -46,7 +46,7 @@ const useTable = (fetchData, dataFieldName, deleteData) => {
         const res = await fetchData({
           ...params,
         });
-        if (res?.success) {
+        if (res?.data) {
           setTableData((pre) => ({
             ...pre,
             data: res[dataFieldName] || [],
