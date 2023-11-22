@@ -21,6 +21,10 @@ const routerLinks = (name) => {
     CreateBrand: "/CreateBrand",
     EditBrand: "/EditBrand",
 
+    Suppliers: "/suppliers",
+    CreateSuppliers: "/CreateSuppliers",
+    EditSuppliers: "/EditSuppliers",
+
     Customer: "/customer",
   };
   return array[name];

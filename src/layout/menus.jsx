@@ -75,6 +75,7 @@ const Layout = [
     key: "Category",
     icon: <AuditOutlined />,
   },
+
   {
     label: "Special",
     key: "Special",
@@ -83,6 +84,11 @@ const Layout = [
   {
     label: "Thương hiệu",
     key: "Brand",
+    icon: <AuditOutlined />,
+  },
+  {
+    label: "Nhà cung cấp",
+    key: "Suppliers",
     icon: <AuditOutlined />,
   },
 ];

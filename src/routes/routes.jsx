@@ -88,6 +88,25 @@ const routes = [
     component: React.lazy(() => import("@/pages/Brands/Create")),
     key: "/",
   },
+
+  {
+    label: "Suppliers",
+    path: routerLinks("Suppliers"),
+    component: React.lazy(() => import("@/pages/Suppliers")),
+    key: "/",
+  },
+  {
+    label: "CreateSuppliers",
+    path: routerLinks("CreateSuppliers"),
+    component: React.lazy(() => import("@/pages/Suppliers/Create")),
+    key: "/",
+  },
+  {
+    label: "EditSuppliers",
+    path: routerLinks("EditSuppliers"),
+    component: React.lazy(() => import("@/pages/Suppliers/Create")),
+    key: "/",
+  },
 ];
 
 export default routes;
