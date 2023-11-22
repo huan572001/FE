@@ -80,6 +80,11 @@ const Layout = [
     key: "Special",
     icon: <AuditOutlined />,
   },
+  {
+    label: "Thương hiệu",
+    key: "Brand",
+    icon: <AuditOutlined />,
+  },
 ];
 
 const Out = () => {
