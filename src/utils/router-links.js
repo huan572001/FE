@@ -36,6 +36,10 @@ const routerLinks = (name) => {
     Banner: "/Banner",
     CreateBanner: "/CreateBanner",
 
+    Environments: "/Environments",
+    CreateEnvironments: "/CreateEnvironments",
+    EditEnvironments: "/EditEnvironments",
+
     Customer: "/customer",
   };
   return array[name];

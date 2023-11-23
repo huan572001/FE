@@ -158,6 +158,25 @@ const routes = [
     component: React.lazy(() => import("@/pages/Banner/Create")),
     key: "/",
   },
+
+  {
+    label: "Environments",
+    path: routerLinks("Environments"),
+    component: React.lazy(() => import("@/pages/Environments")),
+    key: "/",
+  },
+  {
+    label: "CreateEnvironments",
+    path: routerLinks("CreateEnvironments"),
+    component: React.lazy(() => import("@/pages/Environments/Create")),
+    key: "/",
+  },
+  {
+    label: "EditEnvironments",
+    path: routerLinks("EditEnvironments"),
+    component: React.lazy(() => import("@/pages/Environments/Create")),
+    key: "/",
+  },
 ];
 
 export default routes;

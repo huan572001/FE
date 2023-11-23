@@ -106,6 +106,11 @@ const Layout = [
     key: "Banner",
     icon: <AuditOutlined />,
   },
+  {
+    label: "Environments",
+    key: "Environments",
+    icon: <AuditOutlined />,
+  },
 ];
 const Out = () => {
   const auth = useAuth();
