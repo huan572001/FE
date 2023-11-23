@@ -96,8 +96,12 @@ const Layout = [
     key: "Activities",
     icon: <AuditOutlined />,
   },
+  {
+    label: "Unit",
+    key: "Unit",
+    icon: <AuditOutlined />,
+  },
 ];
-
 const Out = () => {
   const auth = useAuth();
   let R = Layout;

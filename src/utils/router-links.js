@@ -29,6 +29,10 @@ const routerLinks = (name) => {
     CreateActivities: "/CreateActivities",
     EditActivities: "/EditActivities",
 
+    Unit: "/Unit",
+    CreateUnit: "/CreateUnit",
+    EditUnit: "/EditUnit",
+
     Customer: "/customer",
   };
   return array[name];
