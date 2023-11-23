@@ -29,7 +29,7 @@ export const columns = (onDelete) => {
           <EditOutlined
             onClick={(e) => {
               e.stopPropagation();
-              navigate(routerLinks("EditMeasure"), { state: { ...info } });
+              navigate(routerLinks("EditBrand"), { state: { ...info } });
             }}
           />
         </>
