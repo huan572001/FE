@@ -20,7 +20,6 @@ const Login = () => {
     if (!values) return;
     try {
       const res = await AuthService.login(values);
-      console.log(res);
       if (res?.status) {
         const data = {
           token: res?.token,

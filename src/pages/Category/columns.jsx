@@ -32,7 +32,7 @@ export const columns = (onDelete) => {
         <>
           <DeleteOutlined
             onClick={(e) => {
-              onDelete(info?.id, "Bạn có chắc muốn xóa Khuyến mãi này không!");
+              onDelete(info?.id, "Bạn có chắc muốn xóa loại hàng này không!");
               e.stopPropagation();
             }}
           />

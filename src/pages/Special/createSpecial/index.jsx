@@ -10,10 +10,9 @@ import { SpecialAPI } from "@/services/special";
 const createMeasure = () => {
   const navigate = useNavigate();
   const onChange = async (value) => {
-    console.log(value);
     try {
       const respone = await SpecialAPI.createSpecial(value);
-      if (respone?.success === true) {
+      if (respone?.data) {
         showConfirmSuccess();
         navigate(routerLinks("Special"));
       } else {

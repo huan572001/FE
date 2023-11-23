@@ -12,16 +12,14 @@ const CreateProduct = () => {
   const [IMG, setIMG] = useState();
   const [special, setSpecial] = useState([]);
   const navigate = useNavigate();
-  console.log(IMG);
   const onFinish = async (values) => {
     const data = new FormData();
     data.append("categoryName", values?.categoryName);
     data.append("ids_special", values?.ids_special || 1);
     data.append("image", IMG);
-    console.log(data);
     try {
       const rq = await CategoryAPI.creatCategory(data);
-      if (rq?.success) {
+      if (rq?.data) {
         showSuccess("Tạo loại nguyên liệu thành công");
         navigate(routerLinks("Category"));
       }

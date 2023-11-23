@@ -84,7 +84,7 @@ const useTable = (fetchData, dataFieldName, deleteData) => {
       showWarning(valueSuccess, async () => {
         try {
           const res = await deleteData(id);
-          if (res?.success) {
+          if (res?.data) {
             showSuccess();
             if (
               params.page === Math.ceil(tableData.total / params.amount) &&

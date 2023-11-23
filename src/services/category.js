@@ -7,7 +7,10 @@ export const CategoryAPI = {
     return axiosClient.get(url);
   },
   creatCategory: async (data) => {
+    console.log(data);
     const url = `/${CATEGORY_API_PATH}/add`;
-    return axiosClient.post(url, data);
+    return axiosClient.post(url, data, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   },
 };

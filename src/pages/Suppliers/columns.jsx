@@ -11,9 +11,9 @@ export const columns = (onDelete) => {
       dataIndex: "id",
     },
     {
-      title: "Tên thương hiệu ",
+      title: "Tên nhà cung cấp ",
       key: "1",
-      dataIndex: "brandName",
+      dataIndex: "supplierName",
     },
     {
       title: "Hoạt động",
@@ -29,7 +29,7 @@ export const columns = (onDelete) => {
           <EditOutlined
             onClick={(e) => {
               e.stopPropagation();
-              navigate(routerLinks("EditMeasure"), { state: { ...info } });
+              navigate(routerLinks("EditSuppliers"), { state: { ...info } });
             }}
           />
         </>

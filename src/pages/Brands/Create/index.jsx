@@ -13,11 +13,10 @@ const CreateProduct = () => {
   const [IMG, setIMG] = useState();
   const [special, setSpecial] = useState([]);
   const navigate = useNavigate();
-  console.log(IMG);
   const onFinish = async (values) => {
     try {
       const rq = await BrandsAPI.createBrand(values);
-      if (rq?.success) {
+      if (rq?.data) {
         showSuccess("Tạo thương hiệu thành công");
         navigate(routerLinks("Brand"));
       }
@@ -34,7 +33,7 @@ const CreateProduct = () => {
           <Col span={13}>
             <Form.Item
               label="Tên thương hiệu"
-              name="brandName"
+              name="name"
               rules={[
                 {
                   required: true,

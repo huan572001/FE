@@ -14,7 +14,7 @@ const Category = () => {
   useEffect(() => {
     fetchRows();
   }, []);
-  console.log(tableData);
+
   return (
     <div>
       <h1
@@ -22,13 +22,13 @@ const Category = () => {
           fontSize: "40px",
         }}
       >
-        Danh sách khuyến mãi
+        Danh sách loại sản phẩm
       </h1>
       <Button
         className="btn"
         onClick={() => navigate(routerLinks("CreateCategory"))}
       >
-        Tạo khuyến mãi
+        Tạo loại sản phẩm
       </Button>
       <Table
         columns={columns(onDelete)}

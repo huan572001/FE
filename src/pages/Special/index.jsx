@@ -23,13 +23,13 @@ const Measure = () => {
           fontSize: "40px",
         }}
       >
-        Danh sach Đơn vị vật tư
+        Danh sach Special
       </h1>
       <Button
         className="btn"
         onClick={() => navigate(routerLinks("CreateSpecial"))}
       >
-        Thêm đơn vị vật tư
+        Thêm Special
       </Button>
       <Table
         columns={columns(onDelete)}
