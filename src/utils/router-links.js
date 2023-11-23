@@ -33,6 +33,9 @@ const routerLinks = (name) => {
     CreateUnit: "/CreateUnit",
     EditUnit: "/EditUnit",
 
+    Banner: "/Banner",
+    CreateBanner: "/CreateBanner",
+
     Customer: "/customer",
   };
   return array[name];
