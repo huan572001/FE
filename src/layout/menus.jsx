@@ -91,6 +91,11 @@ const Layout = [
     key: "Suppliers",
     icon: <AuditOutlined />,
   },
+  {
+    label: "activities",
+    key: "Activities",
+    icon: <AuditOutlined />,
+  },
 ];
 
 const Out = () => {
