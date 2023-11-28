@@ -43,6 +43,7 @@ const routerLinks = (name) => {
     Product: "/Product",
     CreateProduct: "/CreateProduct",
     EditProducts: "/EditProduct",
+    ViewProducts: "/ViewProduct",
 
     Customer: "/customer",
   };

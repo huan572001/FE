@@ -30,8 +30,11 @@ const CreateProduct = () => {
     supplier,
     handleChange,
     imageUrl,
+    setImage,
     loading,
   } = useProduct();
+  const [edit, setEdit] = useState(false);
+
   const uploadButton = (
     <div>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
@@ -46,18 +49,43 @@ const CreateProduct = () => {
   );
   useEffect(() => {
     if (state?.state?.id) {
-      console.log(state?.state);
-      form.setFieldValue("name", state?.state?.supplierName);
+      if (state?.state?.view) {
+        setEdit(true);
+      }
+      form.setFieldValue("productName", state?.state?.productName);
+      form.setFieldValue("stockQuantity", state?.state?.stockQuantity);
+      form.setFieldValue("price", state?.state?.price);
+      form.setFieldValue("description", state?.state?.description);
+      form.setFieldValue("category_id", state?.state?.category?.id);
+      form.setFieldValue("id_environment", state?.state?.environment?.id);
+      form.setFieldValue("id_supplier", state?.state?.supplier?.id);
+      form.setFieldValue("id_activity", state?.state?.activity?.id);
+      form.setFieldValue("id_brand", state?.state?.brand?.id);
+      form.setFieldValue("id_unit", state?.state?.unit?.id);
+      form.setFieldValue("", state?.state?.imageUrl);
+      setImage(state?.state?.imageUrl);
     }
   }, [state?.state?.id]);
   return (
     <>
-      {state?.state?.id ? <h1>Chỉnh sửa sản phẩm</h1> : <h1>Tạo sản phẩm</h1>}
+      {state?.state?.view ? (
+        <h1 className="text-4xl">Thông tin chi tiết sản phẩm</h1>
+      ) : (
+        <>
+          {state?.state?.id ? (
+            <h1 className="text-4xl">Chỉnh sửa sản phẩm</h1>
+          ) : (
+            <h1 className="text-4xl">Tạo sản phẩm</h1>
+          )}
+        </>
+      )}
       {state?.state?.id ? <div>Mã sản phẩm:{state?.state?.id}</div> : ""}
+
       <Form
         layout="vertical"
         onFinish={(e) => onFinish(e, state?.state?.id)}
         form={form}
+        disabled={edit}
       >
         <div className="grid lg:flex">
           <Form.Item
@@ -314,10 +342,16 @@ const CreateProduct = () => {
         </Form.Item>
         <Form.Item>
           <Button htmlType="submit">
-            {state?.state?.id ? (
-              <h1>Chỉnh sửa sản phẩm</h1>
+            {state?.state?.view ? (
+              ""
             ) : (
-              <h1>Tạo sản phẩm</h1>
+              <>
+                {state?.state?.id ? (
+                  <h1>Chỉnh sửa sản phẩm</h1>
+                ) : (
+                  <h1>Tạo sản phẩm</h1>
+                )}
+              </>
             )}
           </Button>
         </Form.Item>

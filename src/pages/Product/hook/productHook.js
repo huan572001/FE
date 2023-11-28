@@ -119,6 +119,10 @@ const useProduct = () => {
       });
     }
   };
+  const setImage = (data) => {
+    setImageUrl(data);
+    setIMG(data);
+  };
   const fetchData = () => {
     getAllCategory();
     getAllEnvironment();
@@ -139,6 +143,7 @@ const useProduct = () => {
     unit,
     supplier,
     imageUrl,
+    setImage,
     handleChange,
     onFinish,
     loading,

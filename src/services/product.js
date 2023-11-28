@@ -14,10 +14,12 @@ export const ProductAPI = {
   },
   editProduct: async (id, data) => {
     const url = `product/update/${id}`;
-    return axiosClient.put(url, data);
+    return axiosClient.put(url, data, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   },
   deleteProduct: async (id) => {
     const url = `/product/delete/${id}`;
-    return axiosClient.delete(url);
+    return axiosClient.get(url);
   },
 };

@@ -1,5 +1,5 @@
 import { showDeleteOderModal } from "@/components/AccountModal/Modal";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined, EyeOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import routerLinks from "@/utils/router-links";
 export const columns = (onDelete) => {
@@ -34,6 +34,14 @@ export const columns = (onDelete) => {
       key: "3",
       render: (_, info) => (
         <>
+          <EyeOutlined
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(routerLinks("ViewProducts"), {
+                state: { ...info, view: true },
+              });
+            }}
+          />
           <DeleteOutlined
             onClick={(e) => {
               e.stopPropagation();
@@ -43,7 +51,7 @@ export const columns = (onDelete) => {
           <EditOutlined
             onClick={(e) => {
               e.stopPropagation();
-              navigate(routerLinks("EditSuppliers"), { state: { ...info } });
+              navigate(routerLinks("EditProducts"), { state: { ...info } });
             }}
           />
         </>
