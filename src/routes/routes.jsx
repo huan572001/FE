@@ -21,24 +21,26 @@ const routes = [
     component: React.lazy(() => import("@/pages/Dashboard/Dashboard")),
     key: "/",
   },
+
   {
     label: "Staff",
     path: routerLinks("Staff"),
-    component: React.lazy(() => import("@/pages/Dashboard/Dashboard")),
+    component: React.lazy(() => import("@/pages/Staff")),
     key: "/",
   },
   {
     label: "CreateStaff",
     path: routerLinks("CreateStaff"),
-    component: React.lazy(() => import("@/pages/Dashboard/Dashboard")),
+    component: React.lazy(() => import("@/pages/Staff/Create")),
     key: "/",
   },
   {
     label: "EditStaff",
     path: routerLinks("EditStaff"),
-    component: React.lazy(() => import("@/pages/Dashboard/Dashboard")),
+    component: React.lazy(() => import("@/pages/Staff/Create")),
     key: "/",
   },
+
   {
     label: "Category",
     path: routerLinks("Category"),

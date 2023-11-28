@@ -115,6 +115,11 @@ const Layout = [
     key: "Environments",
     icon: <AuditOutlined />,
   },
+  {
+    label: "Nhân viên",
+    key: "Staff",
+    icon: <AuditOutlined />,
+  },
 ];
 const Out = () => {
   const auth = useAuth();
