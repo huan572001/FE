@@ -40,6 +40,10 @@ const routerLinks = (name) => {
     CreateEnvironments: "/CreateEnvironments",
     EditEnvironments: "/EditEnvironments",
 
+    Product: "/Product",
+    CreateProduct: "/CreateProduct",
+    EditProducts: "/EditProduct",
+
     Customer: "/customer",
   };
   return array[name];

@@ -75,7 +75,11 @@ const Layout = [
     key: "Category",
     icon: <AuditOutlined />,
   },
-
+  {
+    label: "Sản phẩm",
+    key: "Product",
+    icon: <AuditOutlined />,
+  },
   {
     label: "Special",
     key: "Special",
