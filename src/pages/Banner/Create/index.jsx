@@ -6,19 +6,20 @@ import routerLinks from "@/utils/router-links";
 import { showError, showSuccess } from "@/components/AccountModal/Modal";
 import { SpecialAPI } from "@/services/special";
 import { CategoryAPI } from "@/services/category";
+import { ProductAPI } from "@/services/product";
+import { BannerAPI } from "@/services/banner";
 
 const CreateProduct = () => {
   const [option, setOption] = useState([]);
   const [IMG, setIMG] = useState();
-  const [special, setSpecial] = useState([]);
+  const [product, setProduct] = useState([]);
   const navigate = useNavigate();
   const onFinish = async (values) => {
     const data = new FormData();
-    data.append("categoryName", values?.categoryName);
-    data.append("ids_special", values?.ids_special || 1);
+    data.append("idProduct", values?.idProduct);
     data.append("image", IMG);
     try {
-      const rq = await CategoryAPI.creatCategory(data);
+      const rq = await BannerAPI.creatBanner(data);
       if (rq?.data) {
         showSuccess("Tạo loại nguyên liệu thành công");
         navigate(routerLinks("Category"));
@@ -32,9 +33,9 @@ const CreateProduct = () => {
   };
   const getListProduct = async () => {
     try {
-      const req = await SpecialAPI.getAllSpecial();
+      const req = await ProductAPI.getAllProduct();
       if (req?.data) {
-        setSpecial(req?.data);
+        setProduct(req?.data);
       }
     } catch (error) {
       console.log(error);
@@ -56,7 +57,7 @@ const CreateProduct = () => {
   };
   return (
     <>
-      <h1>Tạo loại sản phẩm</h1>
+      <h1 className="text-4xl">Tạo Banner</h1>
       <Form layout="vertical" onFinish={onFinish}>
         <Row className="myRow">
           <Col span={11}>
@@ -74,42 +75,28 @@ const CreateProduct = () => {
               <input type="file" onChange={(e) => setIMG(e.target.files[0])} />
             </Form.Item>
           </Col>
-          <Col span={13}>
-            <Form.Item
-              label="Tên loại sản phẩm"
-              name="categoryName"
-              rules={[
-                {
-                  required: true,
-                  message: "Không được để trống!",
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-          </Col>
         </Row>
         <Form.Item
-          name={"ids_special"}
-          // rules={[
-          //   {
-          //     required: true,
-          //     message: "Không được để trống!",
-          //   },
-          // ]}
+          name={"idProduct"}
+          rules={[
+            {
+              required: true,
+              message: "Không được để trống!",
+            },
+          ]}
         >
           <Select
             style={{
               width: "100%",
             }}
             placeholder="Tags Mode"
-            onChange={handleChange}
+            // onChange={handleChange}
             defaultValue={1}
           >
-            {special?.map((e, index) => {
+            {product?.map((e, index) => {
               return (
                 <Option key={index} value={e?.id}>
-                  {e?.nameSpecial}
+                  {e?.productName}
                 </Option>
               );
             })}
@@ -117,7 +104,7 @@ const CreateProduct = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button htmlType="submit">Tạo loại sản phẩm</Button>
+          <Button htmlType="submit">Tạo banner</Button>
         </Form.Item>
       </Form>
     </>

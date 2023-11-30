@@ -15,7 +15,6 @@ const CreateProduct = () => {
   const onFinish = async (values) => {
     const data = new FormData();
     data.append("categoryName", values?.categoryName);
-    data.append("ids_special", values?.ids_special || 1);
     data.append("image", IMG);
     try {
       const rq = await CategoryAPI.creatCategory(data);
@@ -89,32 +88,6 @@ const CreateProduct = () => {
             </Form.Item>
           </Col>
         </Row>
-        <Form.Item
-          name={"ids_special"}
-          // rules={[
-          //   {
-          //     required: true,
-          //     message: "Không được để trống!",
-          //   },
-          // ]}
-        >
-          <Select
-            style={{
-              width: "100%",
-            }}
-            placeholder="Tags Mode"
-            onChange={handleChange}
-            defaultValue={1}
-          >
-            {special?.map((e, index) => {
-              return (
-                <Option key={index} value={e?.id}>
-                  {e?.nameSpecial}
-                </Option>
-              );
-            })}
-          </Select>
-        </Form.Item>
 
         <Form.Item>
           <Button htmlType="submit">Tạo loại sản phẩm</Button>

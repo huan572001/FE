@@ -2,11 +2,11 @@ import { CATEGORY_API_PATH } from "@/constant/api";
 import axiosClient from "./axiosClient";
 
 export const BannerAPI = {
-  getAllCategory: async (data) => {
-    const url = `/${CATEGORY_API_PATH}/getAllCategory`;
+  getAllBanner: async (data) => {
+    const url = `/banner/all`;
     return axiosClient.get(url);
   },
-  creatCategory: async (data) => {
+  creatBanner: async (data) => {
     console.log(data);
     const url = `/banner/add`;
     return axiosClient.post(url, data, {

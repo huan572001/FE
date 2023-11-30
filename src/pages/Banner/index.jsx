@@ -11,7 +11,7 @@ import { ActivitiesAPI } from "@/services/activities";
 import { BannerAPI } from "@/services/banner";
 const Brand = () => {
   const { tableData, loading, fetchRows, onDelete } = useTable(
-    BannerAPI.getAllCategory,
+    BannerAPI.getAllBanner,
     "data"
   );
   // const [data, setdata] = useState([]);

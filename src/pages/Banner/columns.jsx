@@ -15,14 +15,14 @@ export const columns = (onDelete) => {
       key: "6",
       render: (_, info) => (
         <>
-          <img className="w-8 " src={info?.imageUrl} alt="anh" />
+          <img className="w-8 " src={info?.url_banner} alt="anh" />
         </>
       ),
     },
     {
-      title: "Tên loại",
+      title: "Tên sản phẩm",
       key: "6",
-      dataIndex: "categoryName",
+      render: (_, info) => <>{info?.product?.productName}</>,
     },
 
     {
