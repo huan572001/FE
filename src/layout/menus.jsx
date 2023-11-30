@@ -3,11 +3,19 @@ import {
   AreaChartOutlined,
   AuditOutlined,
   ContainerOutlined,
+  DiffOutlined,
   DollarOutlined,
   ExceptionOutlined,
+  FileDoneOutlined,
+  FundProjectionScreenOutlined,
   GoldOutlined,
+  HighlightOutlined,
   HomeOutlined,
+  NodeIndexOutlined,
+  OrderedListOutlined,
   ScheduleOutlined,
+  ScissorOutlined,
+  SmileOutlined,
   TeamOutlined,
   UnorderedListOutlined,
   UserAddOutlined,
@@ -66,29 +74,19 @@ const LayoutIngredient = [
 ];
 const Layout = [
   {
-    label: "Thông tin cá nhân",
-    key: "Profile",
-    icon: <AuditOutlined />,
-  },
-  {
     label: "Loại sản phẩm",
     key: "Category",
-    icon: <AuditOutlined />,
+    icon: <OrderedListOutlined />,
   },
   {
     label: "Sản phẩm",
     key: "Product",
-    icon: <AuditOutlined />,
-  },
-  {
-    label: "Special",
-    key: "Special",
-    icon: <AuditOutlined />,
+    icon: <ScissorOutlined />,
   },
   {
     label: "Thương hiệu",
     key: "Brand",
-    icon: <AuditOutlined />,
+    icon: <HighlightOutlined />,
   },
   {
     label: "Nhà cung cấp",
@@ -98,27 +96,27 @@ const Layout = [
   {
     label: "activities",
     key: "Activities",
-    icon: <AuditOutlined />,
+    icon: <DiffOutlined />,
   },
   {
     label: "Unit",
     key: "Unit",
-    icon: <AuditOutlined />,
+    icon: <FileDoneOutlined />,
   },
   {
     label: "Banner",
     key: "Banner",
-    icon: <AuditOutlined />,
+    icon: <FundProjectionScreenOutlined />,
   },
   {
     label: "Environments",
     key: "Environments",
-    icon: <AuditOutlined />,
+    icon: <NodeIndexOutlined />,
   },
   {
     label: "Nhân viên",
     key: "Staff",
-    icon: <AuditOutlined />,
+    icon: <SmileOutlined />,
   },
 ];
 const Out = () => {

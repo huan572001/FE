@@ -1,5 +1,6 @@
 const routerLinks = (name) => {
   const array = {
+    Dashboard: "/",
     Login: "/auth/login",
     Profile: "/profile",
     Order: "/Order",

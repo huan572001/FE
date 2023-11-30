@@ -13,7 +13,7 @@ const routes = [
   {
     label: "dashboard",
     path: routerLinks("Dashboard"),
-    component: React.lazy(() => import("@/pages/Dashboard/Dashboard")),
+    component: React.lazy(() => import("@/pages/Chart")),
     key: "/",
   },
   {

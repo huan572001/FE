@@ -312,7 +312,7 @@ const CreateProduct = () => {
                 <Input type="number" min={0} />
               </Form.Item>
             </Col>
-            <Col lg={8} md={12}>
+            {/* <Col lg={8} md={12}>
               <Form.Item
                 label="Số lượng nhập"
                 name={"stockQuantity"}
@@ -325,7 +325,7 @@ const CreateProduct = () => {
               >
                 <Input type="number" min={0} />
               </Form.Item>
-            </Col>
+            </Col> */}
           </Row>
         </div>
         <Form.Item

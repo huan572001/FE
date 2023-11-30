@@ -14,7 +14,7 @@ export const ProductAPI = {
   },
   editProduct: async (id, data) => {
     const url = `product/update/${id}`;
-    return axiosClient.put(url, data, {
+    return axiosClient.post(url, data, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },

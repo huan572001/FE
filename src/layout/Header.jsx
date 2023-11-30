@@ -1,15 +1,15 @@
-import React from 'react';
-import Ava from '@/assets/tlt2.jpg';
-import { Dropdown, Menu } from 'antd';
+import React from "react";
+import Ava from "@/assets/tlt2.jpg";
+import { Dropdown, Menu } from "antd";
 import {
   LogoutOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-} from '@ant-design/icons';
-import { Header } from 'antd/lib/layout/layout';
-import { useAuth } from '@/context/AuthProvider';
-import { useNavigate } from 'react-router-dom';
-import routerLinks from '@/utils/router-links';
+} from "@ant-design/icons";
+import { Header } from "antd/lib/layout/layout";
+import { useAuth } from "@/context/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import routerLinks from "@/utils/router-links";
 const HeaderComponent = ({ collapsed, handleCollapsed }) => {
   const auth = useAuth();
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const HeaderComponent = ({ collapsed, handleCollapsed }) => {
           <span
             onClick={() => {
               auth.logout();
-              navigate(routerLinks('Login'));
+              navigate(routerLinks("Login"));
             }}
           >
             Logout
@@ -79,9 +79,9 @@ const HeaderComponent = ({ collapsed, handleCollapsed }) => {
             </span>
           </Dropdown> */}
           <Dropdown overlay={menu}>
-            <span className="user-action">
-              <img src={Ava} className="user-avator" alt="avator" />
-            </span>
+            <div className="bg-green-700 w-16 !h-6 text-center rounded-lg grid justify-center">
+              logout
+            </div>
           </Dropdown>
         </div>
       </div>

@@ -7,7 +7,6 @@ import {
   PhoneOutlined,
   RiseOutlined,
 } from "@ant-design/icons";
-import moment from "moment";
 import { useNavigate } from "react-router-dom";
 const Icon = ({ id, status, confirm }) => {
   if (status === 1) {

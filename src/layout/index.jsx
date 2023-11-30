@@ -33,14 +33,9 @@ const LayoutPage = () => {
         collapsed={collapsed}
         width={270}
       >
-        <div className={"logo "}>
-          <img
-            alt="logo"
-            src="https://uploads-ssl.webflow.com/5fb85f26f126ce08d792d2d9/639d4fb26949fb0d309d5aba_logo-phuc-long-coffee-and-tea.jpg"
-          />
-          <div className={collapsed ? "hidden" : "" + "logoName"}>
-            <div className={"name"}>Phuc long</div>
-            <div className={"hastag"}>#HH</div>
+        <div className="logo h-10 pt-3">
+          <div className=" flex justify-center items-center text-2xl">
+            <div className="name text-center">Admin</div>
           </div>
         </div>
         <Menu
