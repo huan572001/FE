@@ -1,7 +1,14 @@
 import { DashboardOutlined } from "@ant-design/icons";
 import React, { lazy } from "react";
 import routerLinks from "@/utils/router-links";
-
+export const routeStaff = [
+  {
+    label: "Order",
+    path: routerLinks("Order"),
+    component: React.lazy(() => import("@/pages/Order")),
+    key: "/",
+  },
+];
 const routes = [
   {
     label: "dashboard",
@@ -12,12 +19,6 @@ const routes = [
   {
     label: "Profile",
     path: routerLinks("Profile"),
-    component: React.lazy(() => import("@/pages/Dashboard/Dashboard")),
-    key: "/",
-  },
-  {
-    label: "Order",
-    path: routerLinks("Order"),
     component: React.lazy(() => import("@/pages/Dashboard/Dashboard")),
     key: "/",
   },

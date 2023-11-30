@@ -4,10 +4,11 @@ import Login from "@/pages/Auth/Login";
 import { useEffect } from "react";
 import { Navigate, useNavigate, useRoutes } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
-import routes from "./routes";
+import routes, { routeStaff } from "./routes";
 
 const getPageRoute = () => {
-  return routes.map((route) => {
+  let R = [...routes, ...routeStaff];
+  return R.map((route) => {
     const Comp = route?.component;
     return {
       path: route?.path,

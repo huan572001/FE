@@ -43,7 +43,7 @@ const LayoutAdmin = [
 const LayoutStaff = [
   {
     label: "Quản lý đơn hàng",
-    key: "ListOrder",
+    key: "Order",
     icon: <ScheduleOutlined />,
   },
 ];
@@ -130,6 +130,8 @@ const Out = () => {
     R = [...Layout, ...LayoutStaff];
   } else if (auth?.user?.data?.roleId === 3) {
     R = [...Layout, ...LayoutIngredient];
+  } else {
+    R = [...Layout, ...LayoutStaff];
   }
   return R;
 };
