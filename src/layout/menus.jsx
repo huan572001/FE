@@ -84,8 +84,13 @@ const Layout = [
     icon: <ScissorOutlined />,
   },
   {
+    label: "Hóa đơn sản phẩm",
+    key: "OrderProduct",
+    icon: <ScissorOutlined />,
+  },
+  {
     label: "Thương hiệu",
-    key: "Brand",
+    key: "Brand", 
     icon: <HighlightOutlined />,
   },
   {

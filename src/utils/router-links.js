@@ -46,6 +46,10 @@ const routerLinks = (name) => {
     EditProducts: "/EditProduct",
     ViewProducts: "/ViewProduct",
 
+    OrderProduct: "/OrderProduct",
+    CreateOrderProduct: "/CreateOrderProduct",
+    ViewOrderProducts: "/ViewOrderProduct",
+
     Customer: "/customer",
   };
   return array[name];
