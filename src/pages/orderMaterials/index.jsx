@@ -12,23 +12,28 @@ import { detailOrderProduct } from "./detail_Ingredient_Order";
 const { RangePicker } = DatePicker;
 const Brand = () => {
   const { tableData, loading, fetchRows, onDelete } = useTable(
-    OrderAPI.getAll,
+    OrderProductAPI.getAll,
     "data",
   );
   // const [data, setdata] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     fetchRows({  
-      "start":"2000-01-01",
-      "end":new Date()
+      start:"2000-01-01",
+      end:moment(new Date()).format("YYYY-MM-DD")
     });
   }, []);
   const onChange = (values) => {
    fetchRows({
-      start: moment(values[0]).format("YY-MM-DD"),
-      end: moment(values[1]).format("YY-MM-DD"),
+      start: moment(values[0]).format("YYYY-MM-DD"),
+      end: moment(values[1]).format("YYYY-MM-DD"),
    })
   };
+
+  const disabledDate = (current) => {
+    // Cho phép chọn các ngày trong quá khứ
+    return current && current >= new Date();
+  };  
   return (
     <div>
       <h1
@@ -45,7 +50,7 @@ const Brand = () => {
         Tạo hóa đơn sản phẩm
       </Button>
       <div>
-        <RangePicker onChange={onChange}  />
+        <RangePicker onChange={onChange}  disabledDate={disabledDate}/>
       </div>
       <Table
         columns={columns(onDelete)}

@@ -19,23 +19,33 @@ const Product = ({ info }) => {
   return (
     <>
       <h1>Hóa đơn sản phẩm</h1>
-      <div className="flex">
-        <div>Thời gian tạo:</div>
-        <div>{info?.date}</div>
-      </div>
-      <div className="flex">
-        <div>Mã nhân viên: </div>
-        <div>{info?.staff_id}</div>
-      </div>
+      <Card>
+        <div className="flex justify-between">
+          <div className="flex">
+          <div>Mã hóa đơn:</div>
+          <div>{info?.id}</div>
+          </div>
+          <div className="flex">
+            <div>Thời gian tạo:</div>
+            <div>{info?.date_import}</div>
+          </div>
+          <div className="flex">
+            <div>Tên nhân viên: </div>
+            <div>{info?.fullname}</div>
+          </div>
+        </div>
+        
+      </Card>
+      
       {listVT?.map((e, index) => {
         return (
           <Card key={index}>
             <div className="flex justify-between">
-              {/* <div>Tên sản phẩm: {e["ingredient.name"]}</div>
-              <div>Đơn vị tính: {e["ingredient.measure.name"]}</div> */}
-              <div>Số lượng: {e?.quantity}</div>
-              <div>Giá: {e?.price}</div>
-            </div>
+                <div>Mã sản phẩm:{e?.id}</div>
+                <div>Tên sản phẩm: {e?.product_name}</div>
+                <div>Số lượng: {e?.quantity}</div>
+                <div>Giá: {e?.price_import}</div>
+              </div>
           </Card>
         );
       })}
@@ -49,6 +59,6 @@ export const detailOrderProduct = (info) => {
     content: <Product info={info} />,
     icon: null,
     closable: true,
-    width: 568,
+    width: 1000,
   });
 };

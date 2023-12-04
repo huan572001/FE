@@ -27,11 +27,15 @@ const FormIngredient = () => {
        "prices":""
     };
     if (listVT.length > 0) {
-      
-      listVT.forEach(e=>{
-        data.productIds=data.productIds+e.id+",",
-        data.quantities=data.quantities+e.qty+",",
-        data.prices=data?.prices+e.price+","
+      let dot=",";
+      listVT.forEach((e,index)=>{
+        console.log(listVT?.length,index);
+        if(listVT?.length===index+1){
+          dot="";
+        }
+        data.productIds=data.productIds+e.id+dot,
+        data.quantities=data.quantities+e.qty+dot,
+        data.prices=data?.prices+e.price+dot
       })
     } else {
       showError("Không có dữ liệu");
