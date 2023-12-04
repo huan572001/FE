@@ -74,6 +74,11 @@ const LayoutIngredient = [
 ];
 const Layout = [
   {
+    label: "Thống kê",
+    key: "Dashboard",
+    icon: <NodeIndexOutlined />,
+  },
+  {
     label: "Loại sản phẩm",
     key: "Category",
     icon: <OrderedListOutlined />,
