@@ -4,7 +4,7 @@ import axiosClient from "./axiosClient";
 export const OrderAPI = {
   getAll: async (data) => {
     const url = `order-employee/all`;
-    return axiosClient.get(url);
+    return axiosClient.post(url,data);
   },
   confirm: async (id, data) => {
     const url = `order-employee/update-status-order/${id}`;

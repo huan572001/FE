@@ -1,5 +1,5 @@
 import useTable from "@/hook/useTable";
-import { Button, Table } from "antd";
+import { Button, DatePicker, Table } from "antd";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { columns } from "./columns";
@@ -15,6 +15,8 @@ import {
   showError,
   showSuccess,
 } from "@/components/AccountModal/Modal";
+import moment from "moment";
+const { RangePicker } = DatePicker;
 const Brand = () => {
   const { params, tableData, loading, fetchRows, onDelete } = useTable(
     OrderAPI.getAll,
@@ -34,8 +36,22 @@ const Brand = () => {
     }
   };
   useEffect(() => {
-    fetchRows();
+    fetchRows({
+      date_start: "2000-01-01",
+      date_end: moment(new Date()).format("YYYY-MM-DD"),
+    });
   }, []);
+  const onChange = (values) => {
+    fetchRows({
+      date_start: moment(values[0]).format("YYYY-MM-DD"),
+      date_end: moment(values[1]).format("YYYY-MM-DD"),
+    })
+   };
+ 
+   const disabledDate = (current) => {
+     // Cho phép chọn các ngày trong quá khứ
+     return current && current >= new Date();
+   };  
   return (
     <div>
       <h1
@@ -45,6 +61,7 @@ const Brand = () => {
       >
         Quản lý đơn hàng
       </h1>
+      <RangePicker onChange={onChange}  disabledDate={disabledDate}/>
       <Table
         columns={columns(confirm)}
         dataSource={tableData?.data}
