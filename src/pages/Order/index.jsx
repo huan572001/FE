@@ -16,6 +16,7 @@ import {
   showSuccess,
 } from "@/components/AccountModal/Modal";
 import moment from "moment";
+import { detailOrder } from "./detail_Ingredient_Order";
 const { RangePicker } = DatePicker;
 const Brand = () => {
   const { params, tableData, loading, fetchRows, onDelete } = useTable(
@@ -67,11 +68,11 @@ const Brand = () => {
         dataSource={tableData?.data}
         rowKey="id"
         loading={loading}
-        // onRow={(record) => ({
-        //   onClick: () => {
-        //     navigate(routerLinks("AddIngredient"), { state: { ...record } });
-        //   },
-        // })}
+        onRow={(record) => ({
+          onClick: () => {
+            detailOrder(record)
+          },
+        })}
       />
     </div>
   );

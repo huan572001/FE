@@ -10,4 +10,8 @@ export const OrderAPI = {
     const url = `order-employee/update-status-order/${id}`;
     return axiosClient.post(url, data);
   },
+  detail: async (id) => {
+    const url = `order-employee/detail/${id}`;
+    return axiosClient.get(url);
+  },
 };

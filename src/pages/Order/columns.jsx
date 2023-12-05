@@ -7,7 +7,6 @@ import {
   PhoneOutlined,
   RiseOutlined,
 } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
 const Icon = ({ id, status, confirm }) => {
   if (status === 1) {
     return (
@@ -57,7 +56,6 @@ const Icon = ({ id, status, confirm }) => {
   }
 };
 export const columns = (confirm) => {
-  const navigate = useNavigate();
   return [
     {
       title: "Mã",
