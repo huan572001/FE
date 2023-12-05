@@ -2,6 +2,7 @@ import { showDeleteOderModal } from "@/components/AccountModal/Modal";
 import { DeleteOutlined, EditOutlined, EyeOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import routerLinks from "@/utils/router-links";
+import { formatMonney } from "@/utils/fomatMoney";
 export const columns = (onDelete) => {
   const navigate = useNavigate();
   return [
@@ -20,9 +21,21 @@ export const columns = (onDelete) => {
       ),
     },
     {
-      title: "Giá sản phẩm ",
+      title: "Tên sản phẩm ",
       key: "1",
       dataIndex: "productName",
+    },
+    {
+      title: "Giá sản phẩm ",
+      key: "1",
+      dataIndex: "price",
+      render: (_, info) => (<> {formatMonney(Number(info?.price))}</>)
+    },
+    {
+      title: "Giá gốc",
+      key: "1",
+      dataIndex: "priceCapital",
+      render: (_, info) => (<> {formatMonney(Number(info?.priceCapital))}</>)
     },
     {
       title: "Số lượng tồn",

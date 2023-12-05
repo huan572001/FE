@@ -1,5 +1,6 @@
 
 import { OrderProductAPI } from "@/services/orderProduct";
+import { formatMonney } from "@/utils/fomatMoney";
 import { Button, Card, Col, Form, Input, Modal, Row, Select } from "antd";
 import { useEffect, useState } from "react";
 const { TextArea } = Input;
@@ -44,7 +45,7 @@ const Product = ({ info }) => {
                 <div>Mã sản phẩm:{e?.id}</div>
                 <div>Tên sản phẩm: {e?.product_name}</div>
                 <div>Số lượng: {e?.quantity}</div>
-                <div>Giá: {e?.price_import}</div>
+                <div>Giá: {formatMonney(Number(e?.price_import))}</div>
               </div>
           </Card>
         );

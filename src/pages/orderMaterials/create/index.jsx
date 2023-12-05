@@ -6,6 +6,7 @@ import { OrderProductAPI } from "@/services/orderProduct";
 import { keyUser } from "@/constant/auth";
 import routerLinks from "@/utils/router-links";
 import { useNavigate } from "react-router-dom";
+import { formatMonney } from "@/utils/fomatMoney";
 // import CardIngredient from "./CardIngredientOrder";
 
 const FormIngredient = () => {
@@ -76,7 +77,7 @@ const FormIngredient = () => {
                 <div>Mã sản phẩm:{e?.id}</div>
                 <div>Tên sản phẩm: {e?.name}</div>
                 <div>Số lượng: {e?.qty}</div>
-                <div>Giá: {e?.price}</div>
+                <div>Giá: {formatMonney(Number(e?.price))}</div>
                 <div className="text-red-600" onClick={() => deleteVT(index)}>
                   Xóa
                 </div>
