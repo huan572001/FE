@@ -15,11 +15,11 @@ export const columns = (onDelete) => {
       key: "1",
       dataIndex: "tongSoLuongBan",
     },
-    {
-      title: "Thời gian",
-      key: "1",
-      dataIndex: "ngay",
-    },
+    // {
+    //   title: "Thời gian",
+    //   key: "1",
+    //   dataIndex: "ngay",
+    // },
     {
       title: "Tổng doanh thu",
       key: "1",

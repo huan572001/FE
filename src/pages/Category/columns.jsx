@@ -36,12 +36,12 @@ export const columns = (onDelete) => {
               e.stopPropagation();
             }}
           />
-          <EditOutlined
+          {/* <EditOutlined
             onClick={(e) => {
               e.stopPropagation();
               // navigate(routerLinks("EditStaff"), { state: { ...info } });
             }}
-          />
+          /> */}
         </>
       ),
     },
