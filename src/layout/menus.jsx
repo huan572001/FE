@@ -132,13 +132,7 @@ const Layout = [
 const Out = () => {
   const auth = useAuth();
   let R = Layout;
-  if (auth?.user?.data?.roleId === 1) {
-    R = [...Layout, ...LayoutAdmin];
-  } else if (auth?.user?.data?.roleId === 2) {
-    R = [...Layout, ...LayoutStaff];
-  } else if (auth?.user?.data?.roleId === 3) {
-    R = [...Layout, ...LayoutIngredient];
-  } else {
+  if (auth?.user?.data?.role?.id === 1) {
     R = [...Layout, ...LayoutStaff];
   }
   return R;
