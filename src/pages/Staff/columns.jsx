@@ -50,12 +50,12 @@ export const columns = (onDelete) => {
               onDelete(info?.id);
             }}
           />
-          <EditOutlined
+          {/* <EditOutlined
             onClick={(e) => {
               e.stopPropagation();
-              navigate(routerLinks("EditBrand"), { state: { ...info } });
+              navigate(routerLinks("EditStaff"), { state: { ...info } });
             }}
-          />
+          /> */}
         </>
       ),
     },

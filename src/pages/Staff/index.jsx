@@ -10,7 +10,8 @@ import { StaffAPI } from "@/services/staff";
 const Brand = () => {
   const { tableData, loading, fetchRows, onDelete } = useTable(
     StaffAPI.getAllStaff,
-    "data"
+    "data",
+    StaffAPI.deleteStaff
   );
   // const [data, setdata] = useState([]);
   const navigate = useNavigate();

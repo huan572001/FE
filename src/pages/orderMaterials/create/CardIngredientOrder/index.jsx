@@ -10,7 +10,7 @@ const CardIngredient = ({ setData }) => {
 
   const getAllProduct = async () => {
     try {
-      const rq = await ProductAPI.getAllProduct();
+      const rq = await ProductAPI.getAllProductAdmin();
       setProduct(rq?.data);
       
     } catch (error) {}

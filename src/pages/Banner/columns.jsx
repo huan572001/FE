@@ -32,16 +32,16 @@ export const columns = (onDelete) => {
         <>
           <DeleteOutlined
             onClick={(e) => {
-              onDelete(info?.id, "Bạn có chắc muốn xóa loại hàng này không!");
+              onDelete(info?.id, "Bạn có chắc muốn xóa không!");
               e.stopPropagation();
             }}
           />
-          <EditOutlined
+          {/* <EditOutlined
             onClick={(e) => {
               e.stopPropagation();
               // navigate(routerLinks("EditStaff"), { state: { ...info } });
             }}
-          />
+          /> */}
         </>
       ),
     },
