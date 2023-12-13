@@ -36,6 +36,7 @@ const routerLinks = (name) => {
 
     Banner: "/Banner",
     CreateBanner: "/CreateBanner",
+    EditBanner: "/EditBanner",
 
     Environments: "/Environments",
     CreateEnvironments: "/CreateEnvironments",

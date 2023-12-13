@@ -1,36 +1,33 @@
 import { useState } from "react";
-import { Button, Col, DatePicker, Form, Input, Modal, Row, Select } from "antd";
+import {
+  Button,
+  Col,
+  DatePicker,
+  Form,
+  Input,
+  Modal,
+  Row,
+  Select,
+  Upload,
+} from "antd";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import routerLinks from "@/utils/router-links";
 import { showError, showSuccess } from "@/components/AccountModal/Modal";
 import { SpecialAPI } from "@/services/special";
 import { CategoryAPI } from "@/services/category";
 import { ProductAPI } from "@/services/product";
 import { BannerAPI } from "@/services/banner";
+import useBanner from "../hook/bannerHook";
+import { dummyRequest } from "@/utils/upload";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 
-const CreateProduct = () => {
-  const [option, setOption] = useState([]);
-  const [IMG, setIMG] = useState();
+const CreateBanner = () => {
   const [product, setProduct] = useState([]);
   const navigate = useNavigate();
-  const onFinish = async (values) => {
-    const data = new FormData();
-    data.append("idProduct", values?.idProduct);
-    data.append("image", IMG);
-    try {
-      const rq = await BannerAPI.creatBanner(data);
-      if (rq?.data) {
-        showSuccess("Tạo loại nguyên liệu thành công");
-        navigate(routerLinks("Category"));
-      }
-    } catch (error) {
-      showError();
-    }
-  };
-  const handleChange = (value) => {
-    setListVT(value);
-  };
+  const { imageUrl, setImage, handleChange, onFinish, loading } = useBanner();
+  const state = useLocation();
+  const [form] = Form.useForm();
   const getListProduct = async () => {
     try {
       const req = await ProductAPI.getAllProduct();
@@ -41,28 +38,45 @@ const CreateProduct = () => {
       console.log(error);
     }
   };
+  const uploadButton = (
+    <div>
+      {loading ? <LoadingOutlined /> : <PlusOutlined />}
+      <div
+        style={{
+          marginTop: 8,
+        }}
+      >
+        Upload
+      </div>
+    </div>
+  );
   useEffect(() => {
     getListProduct();
     // getAllIngredient(setOption);
   }, []);
-  const handleChangeIMG = (e) => {
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setAvatarPreview(reader.result);
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
-  };
+  useEffect(() => {
+    if (state?.state?.id) {
+      form.setFieldValue("idProduct", state?.state?.product?.id);
+      form.setFieldValue("image", state?.state?.url_banner);
+      setImage(state?.state?.url_banner);
+    }
+  }, [state?.state?.id]);
   return (
     <>
-      <h1 className="text-4xl">Tạo Banner</h1>
-      <Form layout="vertical" onFinish={onFinish}>
+      {state?.state?.id ? (
+        <h1 className="text-4xl">Chỉnh sửa Banner</h1>
+      ) : (
+        <h1 className="text-4xl">Tạo Banner</h1>
+      )}
+      <Form
+        layout="vertical"
+        onFinish={(e) => onFinish(e, state?.state?.id)}
+        form={form}
+      >
         <Row className="myRow">
           <Col span={11}>
             <Form.Item
-              style={{ marginRight: "24px" }}
+              // style={{ marginRight: "24px" }}
               label="Ảnh loại sản phẩm"
               name="image"
               rules={[
@@ -72,7 +86,26 @@ const CreateProduct = () => {
                 },
               ]}
             >
-              <input type="file" onChange={(e) => setIMG(e.target.files[0])} />
+              <Upload
+                name="avatar"
+                listType="picture-card"
+                className=" upload-list-inline"
+                showUploadList={false}
+                customRequest={dummyRequest}
+                onChange={handleChange}
+              >
+                {imageUrl ? (
+                  <img
+                    src={imageUrl}
+                    alt="avatar"
+                    style={{
+                      height: "100%",
+                    }}
+                  />
+                ) : (
+                  uploadButton
+                )}
+              </Upload>
             </Form.Item>
           </Col>
         </Row>
@@ -104,11 +137,13 @@ const CreateProduct = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button htmlType="submit">Tạo banner</Button>
+          <Button htmlType="submit">
+            {state?.state?.id ? "Chỉnh sửa Banner" : "Tạo Banner"}
+          </Button>
         </Form.Item>
       </Form>
     </>
   );
 };
 
-export default CreateProduct;
+export default CreateBanner;

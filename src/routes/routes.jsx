@@ -161,6 +161,12 @@ const routes = [
     component: React.lazy(() => import("@/pages/Banner/Create")),
     key: "/",
   },
+  {
+    label: "EditBanner",
+    path: routerLinks("EditBanner"),
+    component: React.lazy(() => import("@/pages/Banner/Create")),
+    key: "/",
+  },
 
   {
     label: "Environments",

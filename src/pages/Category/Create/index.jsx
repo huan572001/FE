@@ -21,8 +21,6 @@ import { dummyRequest } from "@/utils/upload";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 
 const CreateProduct = () => {
-  const [IMG, setIMG] = useState();
-  const navigate = useNavigate();
   const state = useLocation();
   const [form] = Form.useForm();
   const {

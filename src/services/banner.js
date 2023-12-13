@@ -13,4 +13,15 @@ export const BannerAPI = {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },
+  editBanner: async (data, id) => {
+    console.log(data);
+    const url = `/banner/update/${id}`;
+    return axiosClient.post(url, data, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  },
+  delete: async (id) => {
+    const url = `/banner/banners/${id}`;
+    return axiosClient.delete(url);
+  },
 };

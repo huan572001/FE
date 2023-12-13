@@ -1,3 +1,4 @@
+import routerLinks from "@/utils/router-links";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
@@ -36,12 +37,12 @@ export const columns = (onDelete) => {
               e.stopPropagation();
             }}
           />
-          {/* <EditOutlined
+          <EditOutlined
             onClick={(e) => {
               e.stopPropagation();
-              // navigate(routerLinks("EditStaff"), { state: { ...info } });
+              navigate(routerLinks("EditBanner"), { state: { ...info } });
             }}
-          /> */}
+          />
         </>
       ),
     },

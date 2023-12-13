@@ -12,7 +12,8 @@ import { BannerAPI } from "@/services/banner";
 const Brand = () => {
   const { tableData, loading, fetchRows, onDelete } = useTable(
     BannerAPI.getAllBanner,
-    "data"
+    "data",
+    BannerAPI.delete
   );
   // const [data, setdata] = useState([]);
   const navigate = useNavigate();
