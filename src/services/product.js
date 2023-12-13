@@ -6,6 +6,10 @@ export const ProductAPI = {
     const url = `product/allProduct-admin`;
     return axiosClient.get(url);
   },
+  getAllProductAdmin: async (data) => {
+    const url = `product/allProduct-admin`;
+    return axiosClient.get(url);
+  },
   createProduct: async (data) => {
     const url = `product/add`;
     return axiosClient.post(url, data, {

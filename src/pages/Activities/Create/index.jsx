@@ -4,10 +4,6 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import routerLinks from "@/utils/router-links";
 import { showError, showSuccess } from "@/components/AccountModal/Modal";
-import { SpecialAPI } from "@/services/special";
-import { CategoryAPI } from "@/services/category";
-import { BrandsAPI } from "@/services/brands";
-import { SuppliersAPI } from "@/services/suppliers";
 import { ActivitiesAPI } from "@/services/activities";
 
 const CreateProduct = () => {

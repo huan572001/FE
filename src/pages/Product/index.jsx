@@ -7,7 +7,7 @@ import routerLinks from "@/utils/router-links";
 import { ProductAPI } from "@/services/product";
 const Product = () => {
   const { tableData, loading, fetchRows, onDelete } = useTable(
-    ProductAPI.getAllProduct,
+    ProductAPI.getAllProductAdmin,
     "data",
     ProductAPI.deleteProduct
   );

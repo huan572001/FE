@@ -21,33 +21,7 @@ import {
   UserAddOutlined,
 } from "@ant-design/icons";
 // import { Books, BellRing, Stack, User } from '@/assets';
-const LayoutAdmin = [
-  {
-    label: "Quản lý sản phẩm",
-    key: "AdminProduct",
-    icon: <UnorderedListOutlined />,
-  },
-  {
-    label: "Thống kê",
-    key: "statistical",
-    icon: <AreaChartOutlined />,
-  },
-  {
-    label: "Quản lý nhân viên",
-    key: "Staff",
-    icon: <TeamOutlined />,
-  },
-  {
-    label: "Quản lý khuyến mãi",
-    key: "Promotion",
-    icon: <DollarOutlined />,
-  },
-  {
-    label: "Quản lý khách hàng",
-    key: "CustomerAdmin",
-    icon: <UserAddOutlined />,
-  },
-];
+
 const LayoutStaff = [
   {
     label: "Quản lý đơn hàng",
@@ -55,23 +29,7 @@ const LayoutStaff = [
     icon: <ScheduleOutlined />,
   },
 ];
-const LayoutIngredient = [
-  {
-    label: "Quản lý vật tư",
-    key: "Ingredient",
-    icon: <ContainerOutlined />,
-  },
-  {
-    label: "Hóa đơn vật tư",
-    key: "orderMaterials",
-    icon: <ExceptionOutlined />,
-  },
-  {
-    label: "Đơn vị vật tư",
-    key: "Measure",
-    icon: <GoldOutlined />,
-  },
-];
+
 const Layout = [
   {
     label: "Thống kê",
@@ -104,12 +62,12 @@ const Layout = [
     icon: <AuditOutlined />,
   },
   {
-    label: "activities",
+    label: "Hoạt động",
     key: "Activities",
     icon: <DiffOutlined />,
   },
   {
-    label: "Unit",
+    label: "Đơn vị",
     key: "Unit",
     icon: <FileDoneOutlined />,
   },
@@ -119,7 +77,7 @@ const Layout = [
     icon: <FundProjectionScreenOutlined />,
   },
   {
-    label: "Environments",
+    label: "Môi trường",
     key: "Environments",
     icon: <NodeIndexOutlined />,
   },
@@ -132,13 +90,7 @@ const Layout = [
 const Out = () => {
   const auth = useAuth();
   let R = Layout;
-  if (auth?.user?.data?.roleId === 1) {
-    R = [...Layout, ...LayoutAdmin];
-  } else if (auth?.user?.data?.roleId === 2) {
-    R = [...Layout, ...LayoutStaff];
-  } else if (auth?.user?.data?.roleId === 3) {
-    R = [...Layout, ...LayoutIngredient];
-  } else {
+  if (auth?.user?.data?.role?.id === 1) {
     R = [...Layout, ...LayoutStaff];
   }
   return R;

@@ -36,11 +36,10 @@ const RouterApp = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!auth?.user) {
+    if (auth?.user?.data?.role?.id!==1) {
       navigate("/auth/login", { replace: true });
     }
   }, [auth?.user]);
-
   const element = useRoutes(RenderRoutes(auth?.user));
 
   return element;
