@@ -3,7 +3,7 @@ import axiosClient from "./axiosClient";
 
 export const ProductAPI = {
   getAllProduct: async (data) => {
-    const url = `product/allProduct`;
+    const url = `product/allProduct-admin`;
     return axiosClient.get(url);
   },
   createProduct: async (data) => {
