@@ -8,7 +8,8 @@ import { columns } from "./columns";
 const Category = () => {
   const { tableData, loading, fetchRows, onDelete } = useTable(
     CategoryAPI.getAllCategory,
-    "data"
+    "data",
+    CategoryAPI.delete
   );
   const navigate = useNavigate();
   useEffect(() => {

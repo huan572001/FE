@@ -57,7 +57,7 @@ const routes = [
   {
     label: "EditCategory",
     path: routerLinks("EditCategory"),
-    component: React.lazy(() => import("@/pages/Dashboard/Dashboard")),
+    component: React.lazy(() => import("@/pages/Category/Create")),
     key: "/",
   },
   {
@@ -205,7 +205,7 @@ const routes = [
     component: React.lazy(() => import("@/pages/Product/Create")),
     key: "/",
   },
-  
+
   {
     label: "CreateOrderProduct",
     path: routerLinks("CreateOrderProduct"),
@@ -224,6 +224,5 @@ const routes = [
   //   component: React.lazy(() => import("@/pages/Product/Create")),
   //   key: "/",
   // },
-
 ];
 export default routes;

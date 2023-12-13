@@ -11,7 +11,7 @@ const routerLinks = (name) => {
 
     Category: "/Category",
     CreateCategory: "/CreateCategory",
-    EditCategory: "EditCategory",
+    EditCategory: "/EditCategory",
 
     Special: "/specials",
     CreateSpecial: "/CreateSpecial",
